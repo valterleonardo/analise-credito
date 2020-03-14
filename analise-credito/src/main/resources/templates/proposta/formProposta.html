@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>Análise de Crédito</title>	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style/styleCss.css"/>
+</head>
+<body>	
+	<header>
+		<nav class="menu">
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Cadastro de Proposta:</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/propostas" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Propostas</a></li>
+		      </ul>
+		    </div>
+		</nav>
+	</header>
+	
+	<th:block th:include="mensagemValidacao"></th:block>
+	
+	<form class="container" method="post">
+		Nome: <input type="text" value="" name="nome"/>
+		CPF: <input type="text" value="" name="cpf"/>
+		Idade: <input type="text" value="" name="idade"/>
+		Sexo: 
+		<input list="sexo" name="sexo">
+
+		<datalist id="sexo">
+		  <option value="MASCULINO">
+		  <option value="FEMININO">
+		</datalist>	
+		
+		Estado Civil:
+		
+		<input list="estadoCivil" name="estadoCivil">
+
+		<datalist id="estadoCivil">
+		  <option value="SOLTEIRO">
+		  <option value="CASADO">
+		  <option value="DIVORCIADO">
+		  <option value="VIUVO">
+		</datalist>
+		
+		Estado:
+		<input list="estado" name="estado">
+
+		<datalist id="estado">
+		  <option value="AC"><option value="MT"><option value="RS">
+		  <option value="AL"><option value="MS"><option value="RO">
+		  <option value="AP"><option value="MG"><option value="RR">
+		  <option value="AM"><option value="PA"><option value="SC">
+		  <option value="BA"><option value="PB"><option value="SP">
+		  <option value="CE"><option value="PR"><option value="SE">
+		  <option value="DF"><option value="PE"><option value="TO">
+		  <option value="ES"><option value="PI">
+		  <option value="GO"><option value="RJ">
+		  <option value="MA"><option value="RN">
+		</datalist>
+		Dependentes: <input type="number" value="" name="dependentes"/>
+		Renda: <input type="number" value="" name="renda"/>
+		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+	
+	</form>
+
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

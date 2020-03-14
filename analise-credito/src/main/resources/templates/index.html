@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>Análise de Crédito</title>
+	 <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" href="style/styleCss.css"/>
+</head>
+<body>
+	
+	<header>
+		<nav class="menu">
+		    <div class="nav-wrapper">
+		      <a href="/propostas" class="brand-logo">Lista de Propostas</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/cadastrarProposta" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Proposta</a></li>
+		        <li><a href="/processarPropostas" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Processar Propostas</a></li>
+		      </ul>
+		    </div>
+		</nav>
+	</header>
+	<th:block th:include="mensagemValidacao"></th:block>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>CPF</th>
+				<th>Idade</th>
+				<th>Sexo</th>
+				<th>Estado Civil</th>
+				<th>Estado</th>
+				<th>Dependentes</th>
+				<th>Renda</th>
+				<th>Status</th>
+				<th>Limite</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="proposta : ${propostas}">
+				<td><span th:text="${proposta.id}"></span></td>
+				<td><span th:text="${proposta.nome}"></span></<td>
+				<td><span th:text="${proposta.cpf}"></span></<td>
+				<td><span th:text="${proposta.idade}"></span></<td>
+				<td><span th:text="${proposta.sexo}"></span></<td>
+				<td><span th:text="${proposta.estadoCivil}"></span></<td>
+				<td><span th:text="${proposta.estado}"></span></<td>
+				<td><span th:text="${proposta.dependentes}"></span></<td>
+				<td><span th:text="${proposta.renda}"></span></<td>
+				<td><span th:text="${proposta.status}"></span></<td>
+				<td><span th:text="${proposta.limite}"></span></<td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+
+</html>

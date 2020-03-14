@@ -1,0 +1,25 @@
+version: '3'
+services:
+  analise-front:
+    image: analise-credito
+    container_name: analise-front
+    restart: unless-stopped
+    ports:
+      - 8111:8111
+    environment:
+      - DATABASE_PASSWORD=Postgres2018!
+      - DATABASE_USER=postgres
+      - DATABASE_URL=postgresql://docker-postgresql:5432/postgres
+      - ANALISE_CREDITO_CORE_URL=http://analise-credito-core/api/proposta
+  analise-core:
+    image: analise-credito-core
+    container_name: analise-core
+    restart: unless-stopped
+    ports:
+      - 8112:8112
+    depends_on:
+      - analise-front
+networks:
+  default:
+    external:
+      name: analise-network
